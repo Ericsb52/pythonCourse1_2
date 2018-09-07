@@ -5,8 +5,10 @@ fact = "my favorite game is WOW"
 message = "my name is "+  name+  " and I like "+ fact
 print(message)
 
-num = 8
-num2 = 14
+num = input("enter a number")
+num=int(num)
+num2 = input("enter a number")
+num2=int(num2)
 
 print(num+num2)
 
