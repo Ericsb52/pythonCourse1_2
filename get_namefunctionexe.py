@@ -8,9 +8,11 @@ def get_name():
     name=input("what is your name")
 
     
-    
 #display name
     print("the name you entered was", name)
+
+#verify name
+    input ("is this correct yes or no ")
 
 
 print("this is our function")
