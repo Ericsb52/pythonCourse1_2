@@ -12,14 +12,19 @@ def current_time():
     current_minutes= minutes % 60
     hours = minutes // 60
     current_hour = hours % 24
+    if current_hour >=12:
+        tag="  PM"
+    else:
+        tag="  AM"
     
     #set the time zone 
     current_hour = current_hour - 6
+    current_hour = current_hour%12
     #make sure houer will be set to milatary time
     if current_hour >= 24:
-        curent_hour = 0
+        curent_hour = 1
     #format the output
-    timex = str(current_hour)+":"+ str(current_minutes)+":"+str( current_seconds)
+    timex = str(current_hour)+":"+ str(current_minutes)+":"+str( current_seconds)+tag
     #xreturn the output
     return timex
 
@@ -36,13 +41,13 @@ def show_time():
 # Use tkinter lib for showing the clock
 root = Tk()
 root.attributes("-fullscreen", False)
-root.configure(background='black')
+root.configure(background='Green')
 root.bind("x", quit)
 root.after(1000, show_time)
 
 fnt = font.Font(family='Helvetica', size=60, weight='bold')
 txt = StringVar()
-lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="green", background="black")
+lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="Yellow", background="red")
 lbl.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 root.mainloop()
