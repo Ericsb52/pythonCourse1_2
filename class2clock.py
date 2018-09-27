@@ -15,14 +15,16 @@ def current_time():
     current_hour = hours % 24
     #set the time zone 
     current_hour = current_hour - 6
+    #get the am/pm tag
     if current_hour >=12:
         tag="PM"
     else:
-        tag="AM"    
+        tag="AM"
+    #format time output
     timex = str(current_hour)+":"+ str(current_minutes)+":"+str( current_seconds)+tag
     return timex
 
-#winsound.Beep(540,8000)
+
 def quit(*args):
     root.destroy()
 def show_time():

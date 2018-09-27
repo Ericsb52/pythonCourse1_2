@@ -9,7 +9,9 @@ h = 0
 m= 0
 s = 0
 t = "am"
-
+bgColor="Black"
+fgColor="Blue"
+bgLabColor="Black"
 def current_time(h,m,s,t):
     seconds = calendar.timegm(time.gmtime())
     current_seconds = seconds % 60
@@ -58,15 +60,22 @@ def get_alarm(*args):
     s = input("set sec")
     global t
     t = input("am or pm").upper()
-
+def change_color(*args):
+    global bgColor
+    global fgColor
+    global bgLabColor
+    bgColor = input("what color do you want the background").title()
+    fgColor = input("what color do you want the Clock text").title()
+    bgLabColor = bgColor
 root = Tk()
 root.attributes("-fullscreen", False)
-root.configure(background='Green')
+root.configure(background=bgColor)
 root.bind("x", quit)
 root.bind("a",get_alarm)
+root.bind("c",change_color)
 root.after(1000, show_time)
 fnt = font.Font(family='Helvetica', size=60, weight='bold')
 txt = StringVar()
-lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="Yellow", background="red")
+lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground=fgColor, background=bgLabColor)
 lbl.place(relx=0.5, rely=0.5, anchor=CENTER)
 root.mainloop()
