@@ -67,6 +67,7 @@ def change_color(*args):
     bgColor = input("what color do you want the background").title()
     fgColor = input("what color do you want the Clock text").title()
     bgLabColor = bgColor
+    
 root = Tk()
 root.attributes("-fullscreen", False)
 root.configure(background=bgColor)
